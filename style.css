@@ -17,7 +17,11 @@
 /*--------------------------------------------------------------------------------*/
 body
 {
-    /* background-image: url(""); */
+    /* background-color: #272638; */
+    background-image: url("./tiles/0.gif");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: 1375px 760px;
 
     position: fixed; 
     overflow-y: scroll;
@@ -34,15 +38,30 @@ body
     display: flex;
     flex-wrap: wrap;
 
-    border: solid 1px;
+    /* border: solid 5px; */
+
+    /* border-color: #99acd8; */
 
     width: 600px;  /* 20 blocks of 30 px*/
     height: 600px;
 
     position: relative;
-    top: -10px;
+    top: -27px;
     left: 340px;
+
+    background-color: #272638;
+    /* background-color: #551135; */
+    /* background-color: #2d2c4e; */
+    z-index: 1;
+
+    
+
+
+    /* background-image: url("./tiles/grid_frame.png"); */
 }
+
+
+
 
 
 /* ------------------------------------------------------------------------ */
@@ -54,14 +73,30 @@ body
 }
 
 
+.g_border
+{
+    width: 642px ;  /* 20 blocks of 30 px*/
+    height: 628px;
+
+    position: relative;
+    top: -649px;
+    left: 322px;
+
+    background-color: #272638;
+    z-index: 0;
+}
+
 
 /* ------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------ */
 .controls
 {
     font-family: pixelFont;
+
+    color: #99acd8;
+
     position: relative;
-    top: -470px;
+    top: -1172px;
     left: 90px;
 }
 
@@ -73,16 +108,12 @@ body
 .instructions
 {
     font-family: pixelFont;
-    font-size: 16px;
+    font-size: 18px;
 
     position: relative;
-    top: 42px;
-    left: -85px;
+    top: -100px;
+    left: 890px;
 }
-
-
-
-
 
 
 
@@ -92,6 +123,7 @@ body
 .score_class
 {
     font-family: pixelFont;
+    color: #99acd8;
 }
 
 
@@ -101,7 +133,10 @@ body
 /* ------------------------------------------------------------------------ */
 .player
 {
-    background-color: orangered;
+    background-image: url("./tiles/player_sprite.png");
+    background-size: 62px;
+    background-position-x: -16px;
+    background-position-y: -22px;
 }
 
 
@@ -110,7 +145,7 @@ body
 .alien
 {
     /* background-color: purple; */
-    border-radius: 10px;
+    color: white;
 }
 
 
@@ -119,6 +154,10 @@ body
 .boom
 {
     background-color: red;
+    background-image: url("./tiles/player_dead_sprite.png");
+    background-size: 62px;
+    background-position-x: -18px;
+    background-position-y: -16px;
 }
 
 
@@ -126,7 +165,10 @@ body
 /* ------------------------------------------------------------------------ */
 .laser
 {
-    background-color: limegreen;
+    background-image: url("./tiles/player_shot.png");
+    background-size: 62px;
+    background-position-x: -18px;
+    background-position-y: -16px;
 }
 
 
@@ -134,29 +176,65 @@ body
 /* ------------------------------------------------------------------------ */
 .enemy_laser
 {
-    background-color: violet;
+   
+    background-image: url("./tiles/enemy_shot.png");
+    background-size: 66px;
+    background-position-x: -18px;
+    background-position-y: -16px;
 }
 
 
 
 /* ------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------ */
+
 .start_btn
 {
     position: relative;
     font-family: pixelFont;
 
     top: 0px;
-    left: 0px;
+    left: -60px;
+
+	box-shadow:inset 0px 1px 0px 0px #663ae0;
+	background:linear-gradient(to bottom, #a12f6c 5%, #551135 100%);
+	background-color:#a12f6c;
+	border-radius:13px;
+	border:1px solid #69177a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: pixelFont;
+	font-size:16px;
+	font-weight:bold;
+	padding:20px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9b14b3;
 }
+
+.start_btn:hover
+{
+	background:linear-gradient(to bottom, #551135 5%, #a12f6c 100%);
+	background-color:#551135;
+}
+
+.start_btn:active
+{
+	position:relative;
+	top:1px;
+}
+
+        
 
 
 /* ------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------ */
 .enemy_type_3
 {
-    background-color: red;
-    border-radius: 10px;
+    background-image: url("./tiles/third_row_enemy_sprite.png");
+    background-size: 62px;
+    background-position-x: -18px;
+    background-position-y: -16px;
 }
 
 
@@ -164,8 +242,10 @@ body
 /* ------------------------------------------------------------------------ */
 .enemy_type_2
 {
-    background-color: green;
-    border-radius: 10px;
+    background-image: url("./tiles/second_row_enemy_sprite.png");
+    background-size: 63px;
+    background-position-x: -18px;
+    background-position-y: -16px;
 }
 
 
@@ -173,16 +253,24 @@ body
 /* ------------------------------------------------------------------------ */
 .enemy_type_1
 {
-    background-color: blue;
-    border-radius: 10px;
+    background-image: url("./tiles/first_row_enemy_sprite.png");
+    background-size: 60px;
+    background-position-x: -15px;
+    background-position-y: -13px;
 }
 
 
 
 /* ------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------ */
+.treasure
+{
+    background-image: url("./tiles/treasure.png");
+    background-size: 60px;
+    background-position-x: -15px;
+    background-position-y: -18px;
+    color: #272638;
+}
 
 
 
-/* ------------------------------------------------------------------------ */
-/* ------------------------------------------------------------------------ */

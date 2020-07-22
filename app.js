@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded" ,() =>{
 
         newDiv.setAttribute("id",i.toString());
 
+        if(i > 379)
+        {
+            newDiv.setAttribute("class","treasure");
+        }
+
         squares[i] = newDiv;
 
         grid.appendChild(newDiv);
@@ -232,7 +237,7 @@ document.addEventListener("DOMContentLoaded" ,() =>{
 
 
 
-        // game over
+        // game over (if alien hits you)
         //-----------------------------
         if(squares[playerPosIndex].classList.contains("alien","player"))
         {
@@ -245,9 +250,14 @@ document.addEventListener("DOMContentLoaded" ,() =>{
             start_btn.textContent = "Play Again ?";
             isGameOver = true;
 
+            checkGameOver();
+            
+
         }
 
 
+        // game over (if reach the treasure)
+        //-----------------------------
         for (let i = 0; i < aliensArray.length; i++) 
         {
             if(aliensArray[i] > squares.length - (GRID_WIDTH -1))
@@ -255,6 +265,10 @@ document.addEventListener("DOMContentLoaded" ,() =>{
                 scoreDisplay.textContent = "Game Over";
 
                 clearInterval(AlienID);
+
+                isGameOver = true;
+                checkGameOver();
+                break;
             }    
         }
 
@@ -413,14 +427,15 @@ document.addEventListener("DOMContentLoaded" ,() =>{
         }
 
 
-        //only enemies without an enemy in front of them can shoot
+        //only enemies alive and without an enemy in front of them can shoot
         // the * 2 is because the enemy rows are 40 blocks apart from each other
-        if(!squares[currentLaserPos2 + (GRID_WIDTH * 2)].classList.contains("alien"))
+        if(squares[currentLaserPos2].classList.contains("alien") 
+           && !squares[currentLaserPos2 + (GRID_WIDTH * 2)].classList.contains("alien"))
         {
             //isGameOver ? 0 : enemylaserID = setInterval(moveEnemyLaser,330);
             if(!isGameOver && !isGamePaused)
             {
-                enemylaserID = setInterval(moveEnemyLaser,330);
+                enemylaserID = setInterval(moveEnemyLaser,270);
             }
         }
 
@@ -547,7 +562,7 @@ document.addEventListener("DOMContentLoaded" ,() =>{
 
             isGameOver = !isGameOver;
 
-            console.log(deadAliensArray);
+            //console.log(deadAliensArray);
             
         }
 
@@ -562,7 +577,7 @@ document.addEventListener("DOMContentLoaded" ,() =>{
             AlienID = setInterval(moveAliens,500);
 
             //----------------------------------
-            enemyShotRoutineId =  setInterval(enemyShot,630);
+            enemyShotRoutineId =  setInterval(enemyShot,530);
 
 
             //activate the player movement via callback function 
